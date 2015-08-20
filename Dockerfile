@@ -33,7 +33,16 @@ RUN git clone --depth 1 git://git.sv.gnu.org/emacs.git\
     && make bootstrap\
     && make install
 
-COPY server.el /root/server.el
+RUN echo "hi7"
+
+ENV SERVER_NAME=emacs_server
+ENV TERM=xterm
+
+EXPOSE 1234
+
+COPY ./server.el /root/server.el
+
+VOLUME /root/.emacs.d/serverd
 
 ## Run Emacs as a daemon and kepp container alive by usin tail
 CMD emacs --daemon --load=/root/server.el
