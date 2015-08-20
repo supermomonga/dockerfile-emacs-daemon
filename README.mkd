@@ -1,0 +1,10 @@
+
+## Dockerfile Emacs daemon
+
+It provides a container which runs emacs daemon, and it can be connected with container's host machine via TCP.
+
+
+## How to try it
+
+(TBD)
+
