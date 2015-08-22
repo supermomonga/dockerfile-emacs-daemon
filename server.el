@@ -11,5 +11,9 @@
 
 (server-start)
 
+(let ((app-file "/root/app/app.el"))
+  (if (file-exists-p app-file)
+      (load-file app-file)))
+
 (while t
   (accept-process-output nil 1))

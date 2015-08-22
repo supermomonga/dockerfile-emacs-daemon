@@ -44,5 +44,7 @@ COPY ./server.el /root/server.el
 
 VOLUME /root/.emacs.d/serverd
 
+ONBUILD COPY ./app/ /root/app/
+
 ## Run Emacs as a daemon and kepp container alive by usin tail
 CMD emacs --daemon --load=/root/server.el
