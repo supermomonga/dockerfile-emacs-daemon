@@ -1,11 +1,14 @@
 (require 'server)
 
 (progn
-  (setq server-host "0.0.0.0")
-  (setq server-port "1234")
-  (setq server-use-tcp t)
-  (setq server-auth-dir "/root/.emacs.d/serverd")
-  (setq server-name (getenv "SERVER_NAME")))
+  (let ((my/server-host (or (getenv "SERVER_HOST") "0.0.0.0"))
+        (my/server-port (or (getenv "SERVER_PORT") "1234"))
+        (my/server-name (or (getenv "SERVER_NAME") "emacs_server")))
+    (setq server-host my/server-host)
+    (setq server-port my/server-port)
+    (setq server-name my/server-name)
+    (setq server-use-tcp t)
+    (setq server-auth-dir "/root/serverd")))
 
 (defun server-ensure-safe-dir (dir) t)
 

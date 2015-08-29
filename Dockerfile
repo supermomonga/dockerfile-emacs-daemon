@@ -42,7 +42,8 @@ EXPOSE 1234
 COPY ./server.el /root/server.el
 
 ## Directory to serve TCP connection auth file
-VOLUME /root/.emacs.d/serverd
+VOLUME /root/.emacs.d
+VOLUME /root/serverd
 
 ## To execute apps easily using this image
 ONBUILD COPY ./app/ /root/app/
